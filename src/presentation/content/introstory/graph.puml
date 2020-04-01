@@ -1,0 +1,11 @@
+@startuml
+digraph foo {
+    C -> A
+    C -> A
+    C -> D
+    A -> D
+    A -> B
+    A -> B
+    D -> B
+}
+@enduml

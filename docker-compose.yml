@@ -1,0 +1,23 @@
+version: "2.4"
+
+services:
+
+  neo4j:
+    build:
+      context: src/neo4j
+    volumes:
+      - ./data/neo4j/data:/data
+      - ./data/neo4j/logs:/logs
+    ports:
+      - 7474:7474
+      - 7687:7687
+
+  slides:
+    image: jguyomard/hugo-builder
+    user: hugo
+    command: hugo server -w --bind=0.0.0.0 -p 1313 -b http://localhost:1313
+    volumes:
+      - ./src/presentation:/src
+      - ./output/presentation:/output
+    ports:
+      - 1313:1313

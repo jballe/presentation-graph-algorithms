@@ -1,0 +1,23 @@
+title: "Graph Algorithms"
+languageCode: "da"
+defaultContentLanguage: "da"
+theme: reveal-hugo
+disableKinds: 
+  - "sitemap"
+  - "RSS"
+  - "404"
+  - taxonomyTerm
+  - home
+
+params:
+  reveal_hugo:
+    theme: white
+    layout: bundle
+    plugins:
+      - reveal-plantuml.js
+
+outputFormats:
+  Reveal:
+    baseName: index
+    mediaType: text/html
+    isHTML: true
