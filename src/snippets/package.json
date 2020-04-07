@@ -1,0 +1,12 @@
+{
+  "name": "snippets",
+  "version": "1.0.0",
+  "description": "To execute snippets",
+  "main": "execute.js",
+  "dependencies": {
+    "csvtojson": "^2.0.10"
+  },
+  "author": "Jesper Balle",
+  "license": "MIT",
+  "private": true
+}

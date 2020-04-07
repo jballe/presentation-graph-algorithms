@@ -1,0 +1,7 @@
+https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports.dat
+https://raw.githubusercontent.com/jpatokal/openflights/master/data/routes.dat
+https://www.geodatasource.com/addon/country-borders
+
+
+--
+https://www.geodatasource.com/addon/country-borders
