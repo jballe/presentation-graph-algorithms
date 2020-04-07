@@ -26,9 +26,14 @@ services:
     build:
       context: src/web
       target: install
-    command: --port 8082 --public localhost:8082
     volumes:
-      - ./src/web/src:c:/repo/src
-      - ./output/web:c:/repo/dist
+      - ./src/web/src:/repo/src
+      - ./output/web:/repo/dist
     ports:
       - 8082:8082
+
+  query:
+    image: node:12
+    working_dir: /src
+    volumes:
+      - ./src/snippets:/src

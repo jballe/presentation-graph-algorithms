@@ -1,8 +1,17 @@
 param(
-    $HugoCommand=$Null
+    $HugoCommand=$Null,
+    $DockerDesktop = @("${env:ProgramFiles}\Docker\Docker\DockerCli.exe")
 )
 
-$folders = @("data/neo4j/data", "data/neo4j/logs", "data/neo4j/import", "data/neo4j/plugins", "output/presentation", "output/web")
+$cli = $DockerDesktop | Where-Object { Test-Path $_ } | Select-Object -First 1
+if("${cli}" -ne "") {
+    Write-Host "Ensure linux engine"
+    & $cli -SwitchLinuxEngine
+    # Write-Host "Ensure windows engine"
+    # & $cli -SwitchWindowsEngine
+}
+
+$folders = @("data/neo4j/data", "data/neo4j/logs", "output/presentation", "output/web")
 $folders | ForEach-Object {
     $path = Join-Path $PSScriptRoot $_
     If (-not (Test-Path $path)) {
@@ -10,4 +19,5 @@ $folders | ForEach-Object {
     }
 }
 
+Write-Host "Starting stack..."
 & docker-compose up --build --force-recreate
